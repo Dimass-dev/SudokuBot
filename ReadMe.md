@@ -1,0 +1,1 @@
+Hello,i wanna try to make a Bot,that could solve the Sudoku game in real time open app
