@@ -1,0 +1,20 @@
+{
+  "model_type": "knn",
+  "accuracy": 0.9462809917355371,
+  "training_samples": 2900,
+  "test_samples": 726,
+  "augmentation_used": true,
+  "class_distribution": {
+    "1": 434,
+    "2": 504,
+    "3": 434,
+    "4": 406,
+    "5": 448,
+    "6": 336,
+    "7": 322,
+    "8": 364,
+    "9": 378
+  },
+  "balance_ratio": 0.6388888888888888,
+  "timestamp": "2026-05-03T18:52:44.772338"
+}

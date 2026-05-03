@@ -6,14 +6,20 @@ class ImgConvert:
     def __init__(self):
         self.knn = cv2.ml.KNearest_create()
         self.model_loaded = False
-        
-        if os.path.exists('data/samples.data') and os.path.exists('data/responses.data'):
+
+        model_path = 'models/knn_acc0.946_20260503_185244.yml'
+        if os.path.exists(model_path):
+            self.knn = cv2.ml.KNearest_load(model_path)
+            self.model_loaded = True
+            print(f"[Model loaded]: {model_path} (accuracy: 94.63%)")
+        elif os.path.exists('data/samples.data') and os.path.exists('data/responses.data'):
             samples = np.loadtxt('data/samples.data', np.float32)
             responses = np.loadtxt('data/responses.data', np.float32)
             self.knn.train(samples, cv2.ml.ROW_SAMPLE, responses)
             self.model_loaded = True
+            print("[Model trained]: Using data/samples.data")
         else:
-            print("[Warning]: Training files (samples.data) not found!")
+            print("[Warning]: Training files not found!")
 
     def order_points(self, points):
         points = points.reshape(4, 2)
